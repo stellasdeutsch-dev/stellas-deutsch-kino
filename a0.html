@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A0 · Ноль — Кино для немецкого | Stellas Deutsch</title>
+  <meta name="description" content="Фильмы и сериалы для немецкого уровня A0. Самый мягкий старт: короткие фразы, чёткие голоса, знакомые сюжеты." />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="sky"></div>
+  <div class="stars"></div>
+
+  <nav class="nav">
+    <div class="nav-in">
+      <a class="brand" href="index.html"><span class="logo-star">✦</span> Stellas Deutsch</a>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="a0.html" class="active">A0</a>
+        <a href="a1.html">A1</a>
+        <a href="a2.html">A2</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="level-hero">
+    <div class="level-badge"><span style="color:#ff5e8a">●</span> Уровень A0 · Ноль</div>
+    <h1 style="background:linear-gradient(180deg,#fff,#ffb3c8);-webkit-background-clip:text;background-clip:text;color:transparent">A0</h1>
+    <div class="sub">Ты только начал. И это нормально.</div>
+    <p class="intro">
+      A0 — это чистый лист. Слов почти нет. Грамматики ещё нет.
+      Но уши уже можно тренировать. Здесь всё простое: короткие фразы, чёткие голоса, знакомые сюжеты.
+      Задача одна — привыкнуть к звучанию. Не понимать всё. Просто слушать.
+    </p>
+  </header>
+
+  <div class="controls">
+    <div class="controls-in">
+      <div class="search">
+        <span class="ico">⌕</span>
+        <input id="search" type="text" placeholder="Поиск: название, жанр, платформа…" />
+      </div>
+      <div class="select-wrap">
+        <select id="sort" aria-label="Сортировка">
+          <option value="rating-desc">Сначала лучшие ★</option>
+          <option value="rating-asc">Сначала худшие</option>
+          <option value="year-desc">Новее</option>
+          <option value="year-asc">Старее</option>
+          <option value="length-asc">Короче</option>
+          <option value="length-desc">Длиннее</option>
+          <option value="title-asc">Название A–Z</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="chips" id="chips"></div>
+    <div style="display:flex;margin-bottom:14px"><span class="result-count" id="count"></span></div>
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="fbrand"><span style="color:var(--star)">✦</span> Stellas Deutsch</div>
+    <div class="fline">Начинать всегда страшно. С правильным фильмом — уже нет.</div>
+    <div class="fnav">
+      <a href="index.html">Главная</a>
+      <a href="a1.html">Дальше: A1 →</a>
+    </div>
+    <div>© 2026 Stellas Deutsch</div>
+  </footer>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+  <script>initCatalog({ level: "A0" });</script>
+</body>
+</html>

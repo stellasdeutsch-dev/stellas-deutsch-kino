@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stellas Deutsch — Кино для немецкого A0·A1·A2</title>
+  <meta name="description" content="Подборка фильмов и сериалов для изучения немецкого языка. Уровни A0, A1, A2. Постеры, обзоры, оценки и где смотреть." />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="sky"></div>
+  <div class="stars"></div>
+
+  <nav class="nav">
+    <div class="nav-in">
+      <a class="brand" href="index.html"><span class="logo-star">✦</span> Stellas Deutsch</a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Главная</a>
+        <a href="a0.html">A0</a>
+        <a href="a1.html">A1</a>
+        <a href="a2.html">A2</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">Kino-Kollektion · Stellas Deutsch</div>
+    <h1>Немецкий<br />через кино.</h1>
+    <p class="lead">
+      Учебники надоели. Слова не запоминаются. А кино — запоминается само.
+      Мы собрали фильмы и сериалы и разбили их по уровням: <b>от нуля до A2</b>.
+    </p>
+    <div class="punch">
+      <span>Смотри.</span>
+      <span>Слушай.</span>
+      <span>Понимай.</span>
+      <span>Повторяй.</span>
+    </div>
+
+    <section class="wrap">
+      <div class="levels-grid" id="level-cards"></div>
+    </section>
+  </header>
+
+  <main class="wrap">
+    <section class="section">
+      <div class="section-head">
+        <h2>Как это работает</h2>
+        <p>Три уровня. Один принцип. Меньше зубрёжки — больше экрана.</p>
+      </div>
+      <div class="levels-grid" style="margin-top:0">
+        <div class="level-card" style="min-height:auto">
+          <div class="glow" style="background:#ff5e8a"></div>
+          <div class="level-code" style="font-size:34px">Постер</div>
+          <div class="ltag">Каждый фильм — со своим лицом. Узнаёшь с одного взгляда.</div>
+        </div>
+        <div class="level-card" style="min-height:auto">
+          <div class="glow" style="background:#4d9fff"></div>
+          <div class="level-code" style="font-size:34px">Обзор ★</div>
+          <div class="ltag">Коротко и честно. Стоит смотреть или нет. Без воды.</div>
+        </div>
+        <div class="level-card" style="min-height:auto">
+          <div class="glow" style="background:#22d3a6"></div>
+          <div class="level-code" style="font-size:34px">Где смотреть</div>
+          <div class="ltag">Ссылки под рукой. Netflix, DW, YouTube, Prime. Жми и смотри.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="text-align:center;padding-top:30px">
+      <div class="section-head" style="margin-bottom:20px">
+        <h2>С чего начать?</h2>
+        <p>Не знаешь свой уровень — начни с A0. Ошибиться нельзя.</p>
+      </div>
+      <div class="punch" style="margin-top:8px">
+        <span>Ноль слов? → A0</span>
+        <span>Ловишь фразы? → A1</span>
+        <span>Уже понимаешь? → A2</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="fbrand"><span style="color:var(--star)">✦</span> Stellas Deutsch</div>
+    <div class="fline">Кино — это тренажёр, который не хочется бросать. Выбирай уровень, ставь на паузу, догоняй.</div>
+    <div class="fnav">
+      <a href="a0.html">A0</a>
+      <a href="a1.html">A1</a>
+      <a href="a2.html">A2</a>
+    </div>
+    <div>© 2026 Stellas Deutsch · Подборка для изучающих немецкий</div>
+  </footer>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+  <script>renderLevelCards();</script>
+</body>
+</html>
