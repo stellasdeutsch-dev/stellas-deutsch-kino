@@ -2,7 +2,7 @@
    Stellas Deutsch — логика: звёзды, рендер, сортировка, фильтр
    ========================================================= */
 
-/* ---------- Звёздный фон ---------- */
+/* ---------- Волшебное небо: звёзды, пыльца, фейерверки ---------- */
 function buildSky() {
   const sky = document.querySelector(".stars");
   if (!sky) return;
@@ -14,34 +14,74 @@ function buildSky() {
     const d = (2 + Math.random() * 5).toFixed(2);
     const delay = (Math.random() * 5).toFixed(2);
     const size = Math.random() < 0.12 ? 3 : Math.random() < 0.4 ? 2 : 1;
-    html += `<i style="left:${x}%;top:${y}%;--dur:${d}s;animation-delay:${delay}s;width:${size}px;height:${size}px"></i>`;
+    const gold = Math.random() < 0.22 ? " gold" : "";
+    html += `<i class="${gold.trim()}" style="left:${x}%;top:${y}%;--dur:${d}s;animation-delay:${delay}s;width:${size}px;height:${size}px"></i>`;
   }
   sky.innerHTML = html;
-  scheduleShootingStar(sky);
+  schedulePixie(sky);
+  scheduleFirework(sky);
 }
 
-function scheduleShootingStar(sky) {
-  const shoot = () => {
-    const s = document.createElement("div");
-    s.className = "shooting";
-    const startX = 10 + Math.random() * 70;
-    const startY = Math.random() * 40;
-    s.style.left = startX + "%";
-    s.style.top = startY + "%";
-    const angle = 20 + Math.random() * 15;
-    s.style.transform = `rotate(${angle}deg)`;
-    sky.appendChild(s);
-    s.animate(
+/* Летящая пыльца феи (Tinker Bell) */
+function schedulePixie(sky) {
+  const fly = () => {
+    const p = document.createElement("div");
+    p.className = "pixie";
+    const startY = 8 + Math.random() * 50;
+    p.style.top = startY + "%";
+    p.style.left = "-2%";
+    sky.appendChild(p);
+    const drift = (Math.random() * 20 - 10);
+    p.animate(
       [
-        { opacity: 0, transform: `rotate(${angle}deg) translateX(0)` },
-        { opacity: 1, offset: 0.15 },
-        { opacity: 0, transform: `rotate(${angle}deg) translateX(340px)` }
+        { opacity: 0, transform: "translate(0,0)" },
+        { opacity: 1, offset: 0.1 },
+        { opacity: 1, offset: 0.85 },
+        { opacity: 0, transform: `translate(104vw, ${drift}vh)` }
       ],
-      { duration: 900, easing: "ease-out" }
-    ).onfinish = () => s.remove();
-    setTimeout(shoot, 4500 + Math.random() * 7000);
+      { duration: 5200 + Math.random() * 2500, easing: "ease-in-out" }
+    ).onfinish = () => p.remove();
+    setTimeout(fly, 6000 + Math.random() * 8000);
   };
-  setTimeout(shoot, 3000 + Math.random() * 4000);
+  setTimeout(fly, 2500 + Math.random() * 3000);
+}
+
+/* Фейерверк над замком */
+function scheduleFirework(sky) {
+  const COLORS = ["#ffd77a", "#ff8ac2", "#6ec9ff", "#b98bff", "#8affc1"];
+  const boom = () => {
+    const fw = document.createElement("div");
+    fw.className = "firework";
+    const x = 15 + Math.random() * 70;
+    const y = 12 + Math.random() * 26;
+    fw.style.left = x + "%";
+    fw.style.top = y + "%";
+    const color = COLORS[Math.floor((x + y) % COLORS.length)];
+    const N = 16;
+    for (let i = 0; i < N; i++) {
+      const s = document.createElement("span");
+      s.style.background = color;
+      s.style.boxShadow = `0 0 6px ${color}`;
+      fw.appendChild(s);
+      const ang = (Math.PI * 2 * i) / N;
+      const dist = 34 + Math.random() * 18;
+      s.animate(
+        [
+          { opacity: 1, transform: "translate(0,0) scale(1)" },
+          { opacity: 1, offset: 0.6 },
+          {
+            opacity: 0,
+            transform: `translate(${Math.cos(ang) * dist}px, ${Math.sin(ang) * dist}px) scale(0.3)`
+          }
+        ],
+        { duration: 1100, easing: "cubic-bezier(0.15,0.7,0.3,1)" }
+      );
+    }
+    sky.appendChild(fw);
+    setTimeout(() => fw.remove(), 1300);
+    setTimeout(boom, 3200 + Math.random() * 4500);
+  };
+  setTimeout(boom, 1800 + Math.random() * 2500);
 }
 
 /* ---------- Рейтинг звёздами ---------- */
@@ -69,6 +109,9 @@ function cardHTML(f, index) {
     <div class="poster">
       <div class="grad" style="background:linear-gradient(150deg, ${f.poster.from}, ${f.poster.to})"></div>
       <div class="grain"></div>
+      <span class="sparkle s1">✦</span>
+      <span class="sparkle s2">✧</span>
+      <span class="sparkle s3">✦</span>
       <span class="lvl-tag">${f.level}</span>
       <div class="glyph">${f.poster.glyph}</div>
       <div class="title-plate">
